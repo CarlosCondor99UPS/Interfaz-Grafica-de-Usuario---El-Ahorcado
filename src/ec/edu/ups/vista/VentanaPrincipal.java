@@ -28,6 +28,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
+        this.setTitle("Juego Ahorcado - Carlos Condor");
         initComponents();
         //Se setean las palabras y pistas en el arreglo
         palabras[0][0] = "agua";
