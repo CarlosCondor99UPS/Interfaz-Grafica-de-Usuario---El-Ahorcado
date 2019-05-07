@@ -16,6 +16,7 @@ import javax.swing.JTextField;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
+    //Declaracion de variables
     String[][] palabras = new String[2][10];
     JTextField[] campos = new JTextField[9];
     String palabra = "";
@@ -28,6 +29,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents();
+        //Se setean las palabras y pistas en el arreglo
         palabras[0][0] = "agua";
         palabras[1][0] = "Liquido Vital";
         palabras[0][1] = "azucar";
@@ -48,6 +50,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         palabras[1][8] = "Animal con cachos";
         palabras[0][9] = "diente";
         palabras[1][9] = "Estan en la boca";
+        //Se setean los JTextFields en un arreglo de jTextFields
         campos[0] = txt1;
         campos[1] = txt2;
         campos[2] = txt3;
@@ -57,7 +60,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         campos[6] = txt7;
         campos[7] = txt8;
         campos[8] = txt9;
-        
+
     }
 
     /**
@@ -234,6 +237,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        //Se reinician todas las variables
         intentos=6;
         lblIntentos.setText("INTENTOS RESTANTES: "+intentos);
         btnInicio.setText("REINICIAR");
@@ -251,18 +255,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txt8.setVisible(false);
         txt9.setVisible(false);
         lblAhorcado.setVisible(false);
+        //Se crea una numero ramdom para encontra una palabra ramdom
         int numPalabra = (int) (Math.random() * (10) + 0);
         palabra = palabras[0][numPalabra];
+        //El numero ramdom se utiliza para setear la pista 
         pista = palabras[1][numPalabra];
-        System.out.println(palabra);
+        //Se crea un for para mostrar los jTextField necesarios para la palabra
         for (int i = 0; i < palabra.length(); i++) {
             campos[i].setVisible(true);
             campos[i].setText("");
         }
+        //Se setea la pista en la interfaz Grafica
         lblPista.setText(pista);
+        //Se muestra el JLabel del grafico ahorcaod
         lblAhorcado.setVisible(true);
+        //Se crea un numero ramdom para escoger una letra de la palabra
         int numLetra=(int) (Math.random() * (palabra.length()) + 0);
+        //Se obtiene la letra que se va a mostrar
         letra=palabra.substring(numLetra,numLetra+1);
+        //Se muestra las letras que sean iguales a la escogida
         for (int i=0;i<palabra.length();i++){
             if (letra.equalsIgnoreCase(palabra.substring(i,i+1))){
                 campos[i].setText(letra);
@@ -271,10 +282,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnComprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprobarActionPerformed
+        //Boton de comprobar
         String comprobacion="";
+        //Se concatena todos las letras de los jTextFields en una variable
         for (int i=0;i<palabra.length();i++){
             comprobacion=comprobacion+campos[i].getText();
         }
+       
         if (comprobacion.equalsIgnoreCase(palabra)){
             JOptionPane.showMessageDialog(null, "GANASTE \t Palabra: "+palabra);
             btnComprobar.setEnabled(false);
