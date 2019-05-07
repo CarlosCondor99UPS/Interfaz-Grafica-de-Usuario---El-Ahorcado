@@ -9,8 +9,9 @@ ec.edu.ups.imagenes.
 • Se deberá tener un diccionario con un total de 10 palabras con sus pistas, por ejemplo,
 [“animal”] = “elefante”.
 
-• Al iniciar el juego se deberá escoger de manera aleatoria una de las diez palabras. • Luego, de
-manera automática se generará las cajas de texto.
+• Al iniciar el juego se deberá escoger de manera aleatoria una de las diez palabras.
+
+• Luego, de manera automática se generará las cajas de texto.
 
 • Se mostrará la pista.
 
