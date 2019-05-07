@@ -288,14 +288,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         for (int i=0;i<palabra.length();i++){
             comprobacion=comprobacion+campos[i].getText();
         }
-       
+        //Si la palabra concatenada es igual a la palabra escogida del ramdon
         if (comprobacion.equalsIgnoreCase(palabra)){
+            //En caso de verdadero se muestra un mensaje
             JOptionPane.showMessageDialog(null, "GANASTE \t Palabra: "+palabra);
+            //Se bloquea el boton comprobar
             btnComprobar.setEnabled(false);
         }else {
+            //En caso de que sea erronea se muestra otro mensaje
             JOptionPane.showMessageDialog(null, "Palabra Incorrecta");
+            //Los intentos se restan
             intentos--;
+            //Se setean los nuevos intentos
             lblIntentos.setText("INTENTOS RESTANTES: "+intentos);
+            //En caso de que sean 5 se setea otra imagen dependiendo del intento
             if (intentos==5){
                 ImageIcon img2=new ImageIcon("src/ec/edu/ups/imagenes/ahorcado2.png");
                 lblAhorcado.setIcon(img2);  
@@ -312,9 +318,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 ImageIcon img6=new ImageIcon("src/ec/edu/ups/imagenes/ahorcado6.png");
                 lblAhorcado.setIcon(img6);  
             }else if (intentos==0){
+                //Si se llega al ultimo intento
                 ImageIcon img7=new ImageIcon("src/ec/edu/ups/imagenes/ahorcado7.png");
-                lblAhorcado.setIcon(img7);  
+                lblAhorcado.setIcon(img7); 
+                //Se bloquea el boton comprobar
                 btnComprobar.setEnabled(false);
+                //Se muestra la palabra al lado de la pista
                 lblPista.setText(lblPista.getText()+" PALABRA: "+palabra);
             }
         }
